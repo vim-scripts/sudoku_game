@@ -1,0 +1,28 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3553
+
+The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 sub-grids that compose the grid (also called \"boxes\", \"blocks\", \"regions\", or \"sub-squares\") contains all of the digits from 1 to 9. 
+
+
+\" Write this script for sue. 
+\"
+\" Usage:
+\"       Start game: type SudokuEasy/SudokuMedium/SudokuHard/SudokuVeryHard in
+\"       command line 
+\"       If you want create a customization Sudoku, type SudokuCustom <init
+\"       numbers count>, the count is between 20 and 80
+\"       use hjkl/HJKL to move around. use HJKL quick move to the number need
+\"       input
+\"       u:undo ctrl-r:redo
+\"       ?:show right answer under cursor
+\"
+\"       Welcome to email me! Enjoy yourself! 
+\"
+\"Attention:
+\"       ########Need python support! #########
+\"
+\"       Because I don&#039t kown how to create random in vim srcipt.
+\"       I use lots of random numbers to create sudoku. If you know,
+\"       send email to me! Thanks!
+\"
+\"Email: 
+\"       wuhong40@163.com
