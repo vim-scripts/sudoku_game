@@ -459,7 +459,7 @@ endpython
     let s:left_number_cnt = s:get_left_cnt(s:sudoku_user_matrix)
     call s:input_info(s:level, s:left_number_cnt)
     call s:init_curr_matrix()
-    call Cursor(s:start_pos[0], s:start_pos[1])
+    call cursor(s:start_pos[0], s:start_pos[1])
 endfunction
 
 function! SudokuUndo()
@@ -489,7 +489,7 @@ function! SudokuUndo()
             execute "normal! R".g:sudoku_token." "
             setlocal nomodifiable
         endif
-        call Cursor(line("."), col(".")-1)
+        call cursor(line("."), col(".")-1)
         let s:sudoku_curr_matrix[i][j][2] = value
         call s:check()
     else
@@ -523,7 +523,7 @@ function! SudokuRedo()
             execute "normal! R".g:sudoku_token." "
             setlocal nomodifiable
         endif
-        call Cursor(line("."), col(".")-1)
+        call cursor(line("."), col(".")-1)
         let s:sudoku_curr_matrix[i][j][2] = value
         let s:history_index = s:history_index + 1
         call s:check()
@@ -578,7 +578,7 @@ function! SudokuInput(number)
         execute "normal! R".g:sudoku_token." "
         setlocal nomodifiable
     endif
-    call Cursor(line("."), col(".")-1)
+    call cursor(line("."), col(".")-1)
 
     "pop the record after current record
     let length = len(s:history_input_list)
@@ -717,7 +717,7 @@ function! SudokuMoveInputCol(direct)
     let curr_col = s:get_cursor_col()
     "in error postion, go back to start postion
     if curr_row == -1 || curr_col == -1
-        call Cursor(s:start_pos[0],s:start_pos[1])
+        call cursor(s:start_pos[0],s:start_pos[1])
     endif
     
     let temp_col = curr_col
@@ -751,7 +751,7 @@ function! SudokuMoveInputRow(direct)
     let curr_col = s:get_cursor_col()
     "in error postion, go back to start postion
     if curr_row == -1 || curr_col == -1
-        call Cursor(s:start_pos[0],s:start_pos[1])
+        call cursor(s:start_pos[0],s:start_pos[1])
     endif
 
     let temp_row = curr_row
@@ -783,7 +783,7 @@ function! SudokuMoveCol(direct)
     let col_id = s:get_cursor_col()    
     "in error postion, go back to start postion
     if col_id == -1
-        call Cursor(s:start_pos[0],s:start_pos[1])
+        call cursor(s:start_pos[0],s:start_pos[1])
     endif
 
     if a:direct == 0
@@ -808,7 +808,7 @@ function! SudokuMoveRow(direct)
     let row_id = s:get_cursor_row()
     "in error postion, go back to start postion
     if row_id == -1
-        call Cursor(s:start_pos[0],s:start_pos[1])
+        call cursor(s:start_pos[0],s:start_pos[1])
     endif
 
     if a:direct == 0
@@ -831,14 +831,14 @@ function! SudokuMoveRow(direct)
 endfunction
 
 function! s:locate_col(col_id)
-    call Cursor(line("."), s:sudoku_curr_matrix[0][a:col_id][1])
+    call cursor(line("."), s:sudoku_curr_matrix[0][a:col_id][1])
 endfunction
 function! s:locate_row(row_id)
-    call Cursor(s:sudoku_curr_matrix[a:row_id][0][0], col(".")) 
+    call cursor(s:sudoku_curr_matrix[a:row_id][0][0], col(".")) 
 endfunction
 
 "获取当前光标下的数字在数度数组中的列号
-"if Cursor not on matrix return -1
+"if cursor not on matrix return -1
 function! s:get_cursor_col()
     let i = 0
     let cursor_col = col(".")
